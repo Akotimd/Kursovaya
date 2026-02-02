@@ -10,6 +10,7 @@ public class Main {
             //TIP Нажмите <shortcut actionId="Debug"/>, чтобы начать отладку кода. Мы установили одну <icon src="AllIcons.Debugger.Db_set_breakpoint"/> точку останова
             // для вас, но вы всегда можете добавить больше, нажав <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
+            System.out.println("i = " + i);
         }
     }
 }
