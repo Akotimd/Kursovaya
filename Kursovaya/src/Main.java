@@ -6,6 +6,7 @@ public class Main {
             System.out.println("i = " + i);
             for (int j = 0; j < 0; j++) {
                 System.out.println("j = " + j);
+                 int lol = 0;
             }
         }
     }
