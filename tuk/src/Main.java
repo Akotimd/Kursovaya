@@ -1,16 +1,19 @@
-//TIP Чтобы <b>запустить</b> код, нажмите <shortcut actionId="Run"/> или
-// нажмите на значок <icon src="AllIcons.Actions.Execute"/> на полях.
+import java.util.Objects;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Нажмите <shortcut actionId="ShowIntentionActions"/>, когда курсор находится на подсвеченном тексте,
-        // чтобы увидеть предложения IntelliJ IDEA по исправлению.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Нажмите <shortcut actionId="Debug"/>, чтобы начать отладку кода. Мы установили одну <icon src="AllIcons.Debugger.Db_set_breakpoint"/> точку останова
-            // для вас, но вы всегда можете добавить больше, нажав <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-            System.out.println("i = " + i);
-        }
+        Product drell = new Product(1, "Дрель", 2500, "Инструменты");
+        Product kreslo = new Product(2, "Кресло", 4000, "Мебель");
+        Product kresloCopy = new Product(2, "Кресло", 4000, "Мебель");
+        System.out.println(drell);
+        System.out.println(drell.equals(kreslo));
+        System.out.println(kresloCopy.equals(kreslo));
+        System.out.println(Objects.equals(drell, kreslo));
+        Order order = new Order("Иван", new Product[]{drell, kreslo});
+        System.out.println(order);
+        Order orderOne = new Order("Иван", new Product[]{drell, kreslo});
+        Order orderTwo = new Order("Иван", new Product[]{drell});
+        System.out.println(order.equals(orderOne));
+        System.out.println(orderOne.equals(orderTwo));
     }
 }
