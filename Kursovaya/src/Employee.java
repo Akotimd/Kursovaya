@@ -2,14 +2,14 @@ import java.util.Objects;
 
 public class Employee {
     private final String fullName;
-    private String department;
+    private int department;
     private double salary;
     private final int id; //поле id
 
     public static int idEmployee = 0; //статический счётчик id
 
 
-    public Employee(String fullName, String department, double salary) { //конструктор
+    public Employee(String fullName, int department, double salary) { //конструктор
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
@@ -21,7 +21,7 @@ public class Employee {
         return fullName;
     }
 
-    public String getDepartment() {
+    public int getDepartment() {
         return department;
     }
 
@@ -33,8 +33,7 @@ public class Employee {
         return id;
     }
 
-
-    public void setDepartment(String department) { //сеттер департамента
+    public void setDepartment(int department) { //сеттер департамента
         this.department = department;
     }
 
@@ -54,5 +53,12 @@ public class Employee {
         return salary == salaries.salary && id == salaries.id &&
                 Objects.equals(fullName, salaries.fullName) &&
                 Objects.equals(department, salaries.department);
+    }
+    @Override
+    public String toString() { //ретурн инфы в консоль
+        return id + ". " + "Ф.И.О. - " + this.fullName + ", " + "Отдел - " + this.department + ", " + "Зарплата - " + this.salary;
+    }
+    public void printShortInfo() {
+        System.out.println(fullName + ", " + salary);
     }
 }
