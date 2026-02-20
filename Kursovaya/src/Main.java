@@ -1,13 +1,43 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.printf("Hello and welcome!");
+        Employee id1 = new Employee("Васильевич Иван Иванович", 3, 350);
+        Employee id2 = new Employee("Редисовна Лариса Петровна", 2, 150);
+        Employee id3 = new Employee("Раисовна Светлана Евгеньевна", 4, 50);
 
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("i = " + i);
-            for (int j = 0; j < 0; j++) {
-                System.out.println("j = " + j);
-                 int lol = 0;
-            }
+        System.out.println(id1);
+        // шорт инфо
+        id1.printShortInfo();
+
+        System.out.println(id1.getId());
+        //заполнение массива
+        EmployeeBook.fillingArrBook(id1);
+        EmployeeBook.fillingArrBook(id2);
+        EmployeeBook.fillingArrBook(id3);
+
+        EmployeeBook book1 = new EmployeeBook();
+        //все сотрудники
+        book1.getEmployee();
+        book1.printAllEmployees();
+        //зарплаты
+        System.out.println("Сумма зарплат: " + EmployeeBook.calculateSumOfSalary());
+        System.out.println(String.format("Средняя зарплат: %.2f ", EmployeeBook.averageSalary()));
+        //налоги
+        System.out.println(EmployeeBook.taxedSalary("PROGRESSIVE"));
+        //индексация
+        book1.indexSalary(3, 10);
+        book1.printAllEmployees();
+        //найти сотрудников с зарплатой выше
+        book1.findFirstEmployeeWithSalaryGreater(3, 350);
+        book1.findFirstEmployeeWithSalaryGreater(2, 130);
+        //найти меньше
+        book1.findFirstEmployeeWithSalaryLess(34, 3);
+        System.out.println("Сотрудник " + book1.EmpBySalary(id2));
+        //получение сотрудника по id
+        Employee found = book1.getEmployeeById(3);
+        if (found != null) {
+            System.out.println(found);
+        } else {
+            System.out.println("Не найден");
         }
     }
 }
